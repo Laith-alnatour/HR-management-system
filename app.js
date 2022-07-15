@@ -17,8 +17,7 @@ function Employ (ID, fName, department, level, pic){
 
 let empLevel = ["Junior", "Mid-Senior", "Senior"]
 
-
-
+/*
 Employ.prototype.salary= function () {
  
     for (let i=0; i<4; i++)
@@ -29,10 +28,28 @@ Employ.prototype.salary= function () {
 
 
   return this.salary=Math.floor(this.salary)}}
+  
+let salary;
+*/
+
+Employ.prototype.salary= function () {
+(this.level.toLowerCase()==="senior")?  this.salary=
+getRndInteger(1500,2000):
+(this.level.toLowerCase()==="mid-senior")?  this.salary=
+getRndInteger(1000,1500):
+this.salary=getRndInteger(500,1000) 
+
+
+allEmp.push(this.salary*0.075);
+console.log(this.salary)
+
+return this.salary;
+
+}
 
 
 
-Employ.prototype.printInfo = function () { document.write(`<h3>${this.fName}: ${this.salary()} JD <br></h3>`) }
+Employ.prototype.printInfo = function () { document.write(`<h3>${this.fName}: ${this.salary()} JD <br></h3>`) };
 
 
 
@@ -49,11 +66,22 @@ const hadi = new Employ ("1006", "Hadi Ahmad", "Finance", "Mid-Senior","");
 function printEmplinfo () {
 
 for (let i=0; i<allEmp.length;i++){
-    allEmp[i].printInfo()
-}}
+
+    if (typeof(allEmp[i]) !== "number"){
+    allEmp[i].printInfo();
+
+ //    console.log(allEmp[i].salary,allEmp[i].fName );
+    
+}}}
+
+
 
 printEmplinfo()
+let salary;
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
 
 /*
