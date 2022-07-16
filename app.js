@@ -14,23 +14,10 @@ function Employ (ID, fName, department, level, pic){
 }
 
 
-
-let empLevel = ["Junior", "Mid-Senior", "Senior"]
-
-/*
-Employ.prototype.salary= function () {
- 
-    for (let i=0; i<4; i++)
- 
-    if (this.level === empLevel[i]){
-        this.salary = Math.random()*500+(500*(i+1))
-        this.salary = this.salary-(this.salary*0.075)
+let empLevel = ["Junior", "Mid-Senior", "Senior"];
 
 
-  return this.salary=Math.floor(this.salary)}}
-  
 let salary;
-*/
 
 Employ.prototype.salary= function () {
 (this.level.toLowerCase()==="senior")?  this.salary=
@@ -41,96 +28,130 @@ this.salary=getRndInteger(500,1000)
 
 
 allEmp.push(this.salary*0.075);
-console.log(this.salary)
-
 return this.salary;
 
 }
 
 
-
-Employ.prototype.printInfo = function () { document.write(`<h3>${this.fName}: ${this.salary()} JD <br></h3>`) };
-
-
-
-const ghazi = new Employ ("1000", "Ghazi Samer", "Administration", "Senior","");
-const lana = new Employ ("1001", "Lana Ali", "Finance", "Senior","");
-const tamara = new Employ ("1002", "Tamara Ayoub", "Marketing", "Senior","");
-const safi = new Employ ("1003", "Safi Walid", "Administration", "Mid-Senior","");
-const omar = new Employ ("1004", "Omar Zaid", "Development", "Senior","");
-const rana = new Employ ("1005", "Rana Saleh", "Development", "Junior","");
-const hadi = new Employ ("1006", "Hadi Ahmad", "Finance", "Mid-Senior","");
+const ghazi = new Employ ("1000", "Ghazi Samer", "Administration", "Senior","assets/emp photos/Ghazi.jpg");
+const lana = new Employ ("1001", "Lana Ali", "Finance", "Senior","assets/emp photos/Lana.jpg");
+const tamara = new Employ ("1002", "Tamara Ayoub", "Marketing", "Senior","assets/emp photos/Tamara.jpg");
+const safi = new Employ ("1003", "Safi Walid", "Administration", "Mid-Senior","assets/emp photos/Safi.jpg");
+const omar = new Employ ("1004", "Omar Zaid", "Development", "Senior","assets/emp photos/Omar.jpg");
+const rana = new Employ ("1005", "Rana Saleh", "Development", "Junior","assets/emp photos/Rana.jpg");
+const hadi = new Employ ("1006", "Hadi Ahmad", "Finance", "Mid-Senior","assets/emp photos/Hadi.jpg");
 
 
 
-function printEmplinfo () {
 
-for (let i=0; i<allEmp.length;i++){
 
-    if (typeof(allEmp[i]) !== "number"){
-    allEmp[i].printInfo();
 
- //    console.log(allEmp[i].salary,allEmp[i].fName );
+  //for cards task (10)
+
+  Employ.prototype.employeeCard = function() {
     
-}}}
+ 
+
+    if( this.department.toLowerCase()==="administration"){ 
+  
+  
+      const sect = document.getElementById("administration");
+      const divEl = document.createElement('div');
+      sect.appendChild(divEl);
+      let image=document.createElement("img");
+      image.src=this.photo;
+      divEl.appendChild(image);
+      image.style.width="160px";
+      const node = document.createTextNode (`Name: ${this.fName}  , ID : ${this.employeeId}  ,
+      Department : ${this.department} , Level : ${this.level}  , Salary : ${this.salary()} `);
+      divEl.appendChild(node);
+  
+      divEl.style.margin= '5px';
+      divEl.style.padding= '5px';
+      divEl.style.backgroundColor = '#f1f7c1';
+      divEl.style.height ='250px';
+      divEl.style.width ='160px';
+      divEl.style.border =' 5px solid #2943f0';
+      
+  
+      } else if (this.department.toLowerCase()==="finance"){
+  
+      const sect = document.getElementById("finance");
+      const divEl = document.createElement('div');
+      sect.appendChild(divEl);
+      let image=document.createElement("img");
+      image.src=this.photo;
+      divEl.appendChild(image);
+      image.style.width="160px";
+      const node = document.createTextNode (`Name: ${this.fName} , ID : ${this.employeeId}  ,
+      Department : ${this.department} , Level : ${this.level}  , Salary : ${this.salary()} `);
+      divEl.appendChild(node);
+      
+
+      divEl.style.margin= '5px';
+      divEl.style.padding= '5px';
+      divEl.style.backgroundColor = '#c9f2f1';
+      divEl.style.height ='250px';
+      divEl.style.width ='160px';
+      divEl.style.border =' 5px solid #2943f0';
+    
+  
+      } else if (this.department.toLowerCase() ==='marketing'){
+  
+        const sect = document.getElementById("marketing");
+        const divEl = document.createElement('div');
+        sect.appendChild(divEl);
+        let image=document.createElement("img");
+        image.src=this.photo;
+        divEl.appendChild(image);
+        image.style.width="160px";
+        const node = document.createTextNode (`Name: ${this.fName} , ID : ${this.employeeId}  ,
+        Department : ${this.department} , Level : ${this.level}  , Salary : ${this.salary()} `);
+        divEl.appendChild(node);
+  
+        divEl.style.margin= '5px';
+      divEl.style.padding= '5px';
+      divEl.style.backgroundColor = '#ebf7fc';
+      divEl.style.height ='250px';
+      divEl.style.width ='160px';
+      divEl.style.border =' 5px solid #2943f0';
 
 
+      } else if (this.department.toLowerCase() ==='development'){
+  
+        const sect = document.getElementById("development");
+        const divEl = document.createElement('div');
+        sect.appendChild(divEl);
+        let image=document.createElement("img");
+        image.src=this.photo;
+        divEl.appendChild(image);
+        image.style.width="160px";
+        const node = document.createTextNode (`Name: ${this.fName} , ID : ${this.employeeId}  ,
+        Department : ${this.department} , Level : ${this.level}  , Salary : ${this.salary()} `);
+        divEl.appendChild(node);
+        
+        
+      divEl.style.margin= '5px';
+      divEl.style.padding= '5px';
+      divEl.style.backgroundColor = '#86d9fc';
+      divEl.style.height ='250px';
+      divEl.style.width ='160px';
+      divEl.style.border =' 5px solid #2943f0';
+}
+   
+  }
+  
+  function printEmplinfo () {
 
-printEmplinfo()
-let salary;
+  for(let i = 0 ; i < allEmp.length ; i++ ){
 
-function getRndInteger(min, max) {
+    allEmp[i].employeeCard();
+   
+   
+  }}
+  
+  printEmplinfo ();
+  
+  function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
-
-
-/*
-test new way (may need it later)
-const allUsers = [];
-function Employe(idValue,nameValue,depValue,levelValue,imageValue,salaryValue){
-this.id=id ;
-this.name=name;
-this.dep=dep;
-this.level=level;
-this.image=image;
-
-
-allUsers.push(this);
-}
-let level = ["Junior", "Mid-Senior", "Senior"]
-
-Employee.prototype.salary= function () {
-    for (let i=0; i<employeesLevels.length; i++)
-    if (this.level === employeesLevels[i]){
-        this.salary = Math.random()*500+(500*(i+1))
-        this.salary-= this.salary*0.075
-        return this.salary=Math.floor(this.salary)}}
-
-Employee.prototype.printInfo = function () { document.write(`<p>${this["Full Name"]}: ${this.salary()} JD</p>`)}
-
-
-
-
-
-
-const ghazi = new User("1000","Ghazi Samer","Administration","Senior","image")	;
-const lana = new User("1001","Lana Ali	","Finance","Senior","image")	;
-const tamara = new User("1002","Tamara Ayoub","Marketing","Senior","image")	;
-const safi = new User("1003","Safi Walid","Administration","Mid-Senior","image")	;
-const omar = new User("1004","Omar Zaid","Development","Senior","image",)	;
-const rana = new User("1005","Rana Saleh","Development","Junior","image")	;
-const hadi = new User("1006","Hadi Ahmad","Administration","Finance","image")	;
-
-function printEmployeesinfo () {
-    for (let i=0; i<employ.length;i++){
-    employ[i].printInfo()
-    }}
-    printEmployeesinfo()
-
-console.log(allUsers)
-
-
-
-
-
-*/
